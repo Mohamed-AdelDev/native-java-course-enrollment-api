@@ -9,6 +9,6 @@ target/
 .idea/
 .vscode/
 
-# OS files
+# Operating System
 .DS_Store
 Thumbs.db
