@@ -20,7 +20,7 @@ public class Application {
         System.out.println("Course Enrollment Management System");
         System.out.println("Application started successfully\n");
 
-        // ================= Assignment 2 =================
+
 
         Student student = new Student(
                 "Mohamed Adel",
@@ -75,7 +75,6 @@ public class Application {
         System.out.println(payment);
         System.out.println(auditLog);
 
-        // ================= Assignment 3 =================
 
         System.out.println("\n========================================");
         System.out.println("Repository Layer Testing");
@@ -122,13 +121,12 @@ public class Application {
                 )
         );
 
-        // ================= Assignment 4 =================
 
         System.out.println("\n========================================");
         System.out.println("Service Layer Testing");
         System.out.println("========================================");
 
-        // استخدم Repositories جديدة مستقلة
+
         StudentRepository serviceStudentRepository = new InMemoryStudentRepository();
         CourseRepository serviceCourseRepository = new InMemoryCourseRepository();
 
