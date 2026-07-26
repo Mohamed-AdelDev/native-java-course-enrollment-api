@@ -1,6 +1,6 @@
 package com.coursemanagement.dto.response;
 
-import com.coursemanagement.enums.Role;
+import com.coursemanagement.model.enums.Role;
 
 import java.time.LocalDateTime;
 

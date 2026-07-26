@@ -3,7 +3,7 @@ package com.coursemanagement.service;
 import com.coursemanagement.dto.request.RegisterStudentRequest;
 import com.coursemanagement.dto.mapper.StudentMapper;
 import com.coursemanagement.dto.response.StudentResponse;
-import com.coursemanagement.enums.Role;
+import com.coursemanagement.model.enums.Role;
 import com.coursemanagement.model.Student;
 import com.coursemanagement.repository.StudentRepository;
 

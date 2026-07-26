@@ -4,10 +4,9 @@ import com.coursemanagement.dto.mapper.CourseMapper;
 
 import com.coursemanagement.dto.request.CreateCourseRequest;
 import com.coursemanagement.dto.request.UpdateCourseStatusRequest;
-import com.coursemanagement.dto.request.UpdateCourseStatusRequest;
 
 import com.coursemanagement.dto.response.CourseResponse;
-import com.coursemanagement.enums.CourseStatus;
+import com.coursemanagement.model.enums.CourseStatus;
 import com.coursemanagement.model.Course;
 import com.coursemanagement.repository.CourseRepository;
 

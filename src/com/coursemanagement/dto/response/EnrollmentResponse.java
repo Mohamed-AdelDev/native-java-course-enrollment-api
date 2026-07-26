@@ -1,6 +1,6 @@
 package com.coursemanagement.dto.response;
 
-import com.coursemanagement.enums.EnrollmentStatus;
+import com.coursemanagement.model.enums.EnrollmentStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,10 +1,9 @@
 package com.coursemanagement.model;
 
-import com.coursemanagement.enums.Role;
+import com.coursemanagement.model.enums.Role;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Student {
     private Long id;

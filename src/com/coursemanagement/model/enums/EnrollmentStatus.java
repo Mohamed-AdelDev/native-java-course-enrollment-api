@@ -1,4 +1,4 @@
-package com.coursemanagement.enums;
+package com.coursemanagement.model.enums;
 
 public enum EnrollmentStatus {
     Pendig,

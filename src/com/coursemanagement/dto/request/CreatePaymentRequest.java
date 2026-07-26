@@ -1,6 +1,6 @@
 package com.coursemanagement.dto.request;
 
-import com.coursemanagement.enums.PaymentMethod;
+import com.coursemanagement.model.enums.PaymentMethod;
 
 import java.math.BigDecimal;
 

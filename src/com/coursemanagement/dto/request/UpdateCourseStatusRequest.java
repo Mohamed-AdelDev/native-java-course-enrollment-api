@@ -1,6 +1,6 @@
 package com.coursemanagement.dto.request;
 
-import com.coursemanagement.enums.CourseStatus;
+import com.coursemanagement.model.enums.CourseStatus;
 
 public class UpdateCourseStatusRequest {
 

@@ -1,6 +1,6 @@
 package com.coursemanagement.model;
 
-import com.coursemanagement.enums.CourseStatus;
+import com.coursemanagement.model.enums.CourseStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package com.coursemanagement.dto.response;
 
-import com.coursemanagement.enums.PaymentMethod;
-import com.coursemanagement.enums.PaymentStatus;
+import com.coursemanagement.model.enums.PaymentMethod;
+import com.coursemanagement.model.enums.PaymentStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
