@@ -2,28 +2,25 @@ package com.coursemanagement.dto.request;
 
 
 import java.math.BigDecimal;
+import com.coursemanagement.model.enums.CourseStatus;
 
 
 public class CreateCourseRequest {
 
 
     private String title;
-
-
     private String description;
-
-
     private BigDecimal price;
-
-
     private int capacity;
+    private CourseStatus status;
 
-    public CreateCourseRequest(String title, String description, BigDecimal price, int capacity) {
+    public CreateCourseRequest(String title, String description, BigDecimal price, int capacity, CourseStatus status) {
 
         this.title=title;
         this.description=description;
         this.price=price;
         this.capacity=capacity;
+        this.status=status;
     }
 
 
@@ -64,5 +61,13 @@ public class CreateCourseRequest {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public CourseStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(CourseStatus status) {
+        this.status = status;
     }
 }

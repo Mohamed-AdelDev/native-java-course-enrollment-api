@@ -1,12 +1,9 @@
 package com.coursemanagement.service;
 
 import com.coursemanagement.dto.mapper.CourseMapper;
-
 import com.coursemanagement.dto.request.CreateCourseRequest;
 import com.coursemanagement.dto.request.UpdateCourseStatusRequest;
-
 import com.coursemanagement.dto.response.CourseResponse;
-import com.coursemanagement.model.enums.CourseStatus;
 import com.coursemanagement.model.Course;
 import com.coursemanagement.repository.CourseRepository;
 
@@ -25,17 +22,26 @@ public class CourseService {
 
     public CourseResponse createCourse(CreateCourseRequest request) {
 
-        if (request.getTitle() == null || request.getTitle().isBlank())
+        if (request.getTitle() == null || request.getTitle().isBlank()) {
             throw new IllegalArgumentException("Title is required");
+        }
 
-        if (request.getDescription() == null || request.getDescription().isBlank())
+        if (request.getDescription() == null || request.getDescription().isBlank()) {
             throw new IllegalArgumentException("Description is required");
+        }
 
-        if (request.getPrice().compareTo(BigDecimal.ZERO) <= 0)
+        if (request.getPrice() == null
+                || request.getPrice().compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Price must be greater than zero");
+        }
 
-        if (request.getCapacity() <= 0)
+        if (request.getCapacity() <= 0) {
             throw new IllegalArgumentException("Capacity must be greater than zero");
+        }
+
+        if (request.getStatus() == null) {
+            throw new IllegalArgumentException("Status is required");
+        }
 
         Course course = new Course(
                 request.getTitle(),
@@ -43,7 +49,7 @@ public class CourseService {
                 request.getPrice(),
                 request.getCapacity(),
                 request.getCapacity(),
-                CourseStatus.Open,
+                request.getStatus(),
                 LocalDateTime.now(),
                 LocalDateTime.now()
         );
@@ -70,7 +76,8 @@ public class CourseService {
                 .collect(Collectors.toList());
     }
 
-    public CourseResponse replaceCourse(Long id, CreateCourseRequest request) {
+    public CourseResponse replaceCourse(Long id,
+                                        CreateCourseRequest request) {
 
         Course course = courseRepository.findById(id)
                 .orElseThrow(() ->
@@ -81,6 +88,7 @@ public class CourseService {
         course.setPrice(request.getPrice());
         course.setCapacity(request.getCapacity());
         course.setAvailableSeats(request.getCapacity());
+        course.setStatus(request.getStatus());
         course.setUpdatedAt(LocalDateTime.now());
 
         courseRepository.save(course);
@@ -106,7 +114,5 @@ public class CourseService {
     public void deleteCourse(Long id) {
 
         courseRepository.deleteById(id);
-
     }
-
 }

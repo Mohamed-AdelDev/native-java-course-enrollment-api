@@ -4,9 +4,7 @@ package com.coursemanagement.dto.request;
 public class RegisterStudentRequest {
 
     private String fullName;
-
     private String email;
-
     private String password;
 
     public RegisterStudentRequest(String fullName, String email, String password) {

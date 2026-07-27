@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.Optional;
 
 public class InMemoryCourseRepository implements CourseRepository{
-    private final Map<Long, Course> courses = new HashMap<>();
+    private static final Map<Long, Course> courses = new HashMap<>();
 
     private Long nextId = 1L;
 
