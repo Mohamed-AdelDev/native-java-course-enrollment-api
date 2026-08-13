@@ -59,4 +59,25 @@ public class HttpUtil {
 
         return Long.parseLong(parts[3]);
     }
+    public static String getQueryParameter(HttpExchange exchange, String key) {
+
+        String query = getQuery(exchange);
+
+        if (query == null) {
+            return null;
+        }
+
+        String[] parameters = query.split("&");
+
+        for (String parameter : parameters) {
+
+            String[] pair = parameter.split("=");
+
+            if (pair.length == 2 && pair[0].equals(key)) {
+                return pair[1];
+            }
+        }
+
+        return null;
+    }
 }

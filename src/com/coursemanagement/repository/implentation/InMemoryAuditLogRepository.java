@@ -1,12 +1,13 @@
-package com.coursemanagement.repository;
+package com.coursemanagement.repository.implentation;
 
 import com.coursemanagement.model.AuditLog;
+import com.coursemanagement.repository.AuditLogRepository;
 
 import java.util.HashMap;
 import java.util.*;
 import java.util.Optional;
 
-public class InMemoryAuditLogRepository implements AuditLogRepository{
+public class InMemoryAuditLogRepository implements AuditLogRepository {
     private final Map<Long, AuditLog>auditLogs = new HashMap<>();
     private Long nextId = 1l;
 

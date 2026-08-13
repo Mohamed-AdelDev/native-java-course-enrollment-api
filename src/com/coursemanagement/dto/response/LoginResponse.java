@@ -1,26 +1,32 @@
 package com.coursemanagement.dto.response;
 
+import com.coursemanagement.model.enums.Role;
+
 public class LoginResponse {
 
-    private Long studentId;
-    private String fullName;
-    private String message;
+    private String accessToken;
+    private String tokenType;
+    private Role role;
 
-    public LoginResponse(Long studentId, String fullName, String message) {
-        this.studentId = studentId;
-        this.fullName = fullName;
-        this.message = message;
+    public LoginResponse(
+            String accessToken,
+            String tokenType,
+            Role role
+    ) {
+        this.accessToken = accessToken;
+        this.tokenType = tokenType;
+        this.role = role;
     }
 
-    public Long getStudentId() {
-        return studentId;
+    public String getAccessToken() {
+        return accessToken;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getTokenType() {
+        return tokenType;
     }
 
-    public String getMessage() {
-        return message;
+    public Role getRole() {
+        return role;
     }
 }

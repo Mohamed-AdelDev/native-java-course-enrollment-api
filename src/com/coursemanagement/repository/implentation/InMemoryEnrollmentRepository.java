@@ -1,12 +1,13 @@
-package com.coursemanagement.repository;
+package com.coursemanagement.repository.implentation;
 
 import com.coursemanagement.model.Enrollment;
+import com.coursemanagement.repository.EnrollmentRepository;
 
 import java.util.HashMap;
 import java.util.*;
 import java.util.Optional;
 
-public class InMemoryEnrollmentRepository implements EnrollmentRepository{
+public class InMemoryEnrollmentRepository implements EnrollmentRepository {
     private final Map<Long , Enrollment> enrollments = new HashMap<>();
 
     private long nextId = 1l ;

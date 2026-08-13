@@ -1,5 +1,6 @@
-package com.coursemanagement.repository;
+package com.coursemanagement.repository.implentation;
 import com.coursemanagement.model.Student;
+import com.coursemanagement.repository.StudentRepository;
 
 import java.util.*;
 

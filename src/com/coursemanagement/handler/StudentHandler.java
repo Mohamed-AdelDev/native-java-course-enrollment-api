@@ -2,8 +2,9 @@ package com.coursemanagement.handler;
 
 import com.coursemanagement.dto.request.RegisterStudentRequest;
 import com.coursemanagement.dto.response.StudentResponse;
-import com.coursemanagement.repository.InMemoryStudentRepository;
+import com.coursemanagement.repository.implentation.InMemoryStudentRepository;
 import com.coursemanagement.repository.StudentRepository;
+import com.coursemanagement.repository.implentation.RepositoryManager;
 import com.coursemanagement.service.StudentService;
 import com.coursemanagement.util.HttpUtil;
 import com.coursemanagement.util.JsonUtil;
@@ -15,7 +16,7 @@ import java.io.IOException;
 public class StudentHandler implements HttpHandler {
 
     private static final StudentRepository studentRepository =
-            new InMemoryStudentRepository();
+            RepositoryManager.studentRepository;
 
     private static final StudentService studentService =
             new StudentService(studentRepository);

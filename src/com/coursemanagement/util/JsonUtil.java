@@ -2,6 +2,7 @@ package com.coursemanagement.util;
 
 import com.coursemanagement.dto.response.CourseResponse;
 import com.coursemanagement.dto.response.StudentResponse;
+import com.coursemanagement.dto.response.EnrollmentResponse;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -191,6 +192,50 @@ public class JsonUtil {
             json.append(toJson(courses.get(i)));
 
             if (i < courses.size() - 1) {
+                json.append(",");
+            }
+        }
+
+        json.append("]");
+
+        return json.toString();
+    }
+
+    public static String toJson(EnrollmentResponse enrollment) {
+
+        return """
+            {
+              "id": %d,
+              "studentId": %d,
+              "courseId": %d,
+              "originalPrice": %s,
+              "discountAmount": %s,
+              "finalPrice": %s,
+              "status": "%s",
+              "enrollmentDate": "%s"
+            }
+            """.formatted(
+                enrollment.getId(),
+                enrollment.getStudentId(),
+                enrollment.getCourseId(),
+                enrollment.getOriginalPrice(),
+                enrollment.getDiscountAmount(),
+                enrollment.getFinalPrice(),
+                enrollment.getStatus(),
+                enrollment.getEnrollmentDate()
+        );
+    }
+
+    public static String toJsonEnrollments(
+            List<EnrollmentResponse> enrollments) {
+
+        StringBuilder json = new StringBuilder("[");
+
+        for (int i = 0; i < enrollments.size(); i++) {
+
+            json.append(toJson(enrollments.get(i)));
+
+            if (i < enrollments.size() - 1) {
                 json.append(",");
             }
         }

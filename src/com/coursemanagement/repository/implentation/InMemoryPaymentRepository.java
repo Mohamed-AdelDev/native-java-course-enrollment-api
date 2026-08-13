@@ -1,12 +1,13 @@
-package com.coursemanagement.repository;
+package com.coursemanagement.repository.implentation;
 
 import com.coursemanagement.model.Payment;
+import com.coursemanagement.repository.PaymentRepository;
 
 import java.util.HashMap;
 import java.util.*;
 import java.util.Optional;
 
-public class InMemoryPaymentRepository implements PaymentRepository{
+public class InMemoryPaymentRepository implements PaymentRepository {
     private final Map<Long,Payment>payments = new HashMap<>();
 
     private long nextId = 1l;
