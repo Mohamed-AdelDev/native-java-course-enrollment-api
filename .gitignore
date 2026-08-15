@@ -34,3 +34,4 @@ Thumbs.db
 
 # Postman local files
 postman/*.local.json
+.idea/
