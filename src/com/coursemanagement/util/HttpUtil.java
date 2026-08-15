@@ -8,72 +8,110 @@ import java.nio.charset.StandardCharsets;
 
 public class HttpUtil {
 
-    public static void sendJsonResponse(HttpExchange exchange, int statusCode, String json) throws IOException {
+    public static void sendJsonResponse(
+            HttpExchange exchange,
+            int statusCode,
+            String json) throws IOException {
 
-        exchange.getResponseHeaders().add("Content-Type", "application/json");
+        exchange.getResponseHeaders()
+                .set("Content-Type", "application/json");
 
-        byte[] responseBytes = json.getBytes(StandardCharsets.UTF_8);
+        byte[] responseBytes =
+                json.getBytes(StandardCharsets.UTF_8);
 
-        exchange.sendResponseHeaders(statusCode, responseBytes.length);
+        exchange.sendResponseHeaders(
+                statusCode,
+                responseBytes.length
+        );
 
-        OutputStream os = exchange.getResponseBody();
-        os.write(responseBytes);
-        os.close();
+        try (OutputStream os =
+                     exchange.getResponseBody()) {
+
+            os.write(responseBytes);
+        }
     }
 
-    public static void sendResponse(HttpExchange exchange,
-                                    int statusCode) throws IOException {
+    public static void sendResponse(
+            HttpExchange exchange,
+            int statusCode) throws IOException {
 
-        exchange.sendResponseHeaders(statusCode, -1);
+        exchange.sendResponseHeaders(
+                statusCode,
+                -1
+        );
+
         exchange.close();
     }
 
-    public static String getRequestMethod(HttpExchange exchange) {
+    public static String getRequestMethod(
+            HttpExchange exchange) {
+
         return exchange.getRequestMethod();
     }
 
-    public static String getRequestPath(HttpExchange exchange) {
+    public static String getRequestPath(
+            HttpExchange exchange) {
+
         return exchange.getRequestURI().getPath();
     }
 
-    public static String getRequestBody(HttpExchange exchange) throws IOException {
+    public static String getRequestBody(
+            HttpExchange exchange) throws IOException {
 
-        return new String(exchange.getRequestBody().readAllBytes());
+        return new String(
+                exchange.getRequestBody().readAllBytes(),
+                StandardCharsets.UTF_8
+        );
     }
 
-    public static String getHeader(HttpExchange exchange, String headerName) {
+    public static String getHeader(
+            HttpExchange exchange,
+            String headerName) {
 
-        return exchange.getRequestHeaders().getFirst(headerName);
+        return exchange.getRequestHeaders()
+                .getFirst(headerName);
     }
 
-    public static String getQuery(HttpExchange exchange) {
+    public static String getQuery(
+            HttpExchange exchange) {
 
         return exchange.getRequestURI().getQuery();
     }
 
-    public static Long getIdFromPath(HttpExchange exchange) {
+    public static Long getIdFromPath(
+            HttpExchange exchange) {
 
-        String path = getRequestPath(exchange);
+        String path =
+                getRequestPath(exchange);
 
-        String[] parts = path.split("/");
+        String[] parts =
+                path.split("/");
 
         return Long.parseLong(parts[3]);
     }
-    public static String getQueryParameter(HttpExchange exchange, String key) {
 
-        String query = getQuery(exchange);
+    public static String getQueryParameter(
+            HttpExchange exchange,
+            String key) {
+
+        String query =
+                getQuery(exchange);
 
         if (query == null) {
             return null;
         }
 
-        String[] parameters = query.split("&");
+        String[] parameters =
+                query.split("&");
 
         for (String parameter : parameters) {
 
-            String[] pair = parameter.split("=");
+            String[] pair =
+                    parameter.split("=", 2);
 
-            if (pair.length == 2 && pair[0].equals(key)) {
+            if (pair.length == 2
+                    && pair[0].equals(key)) {
+
                 return pair[1];
             }
         }

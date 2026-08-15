@@ -1,14 +1,36 @@
-# Java
+# Compiled Java files
 *.class
 
 # Build directories
-out/
 target/
+out/
+build/
 
-# IDE
+# IntelliJ IDEA
 .idea/
+*.iml
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
 .vscode/
 
-# Operating System
+# OS files
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Environment / secrets
+.env
+*.env
+
+# Postman local files
+postman/*.local.json

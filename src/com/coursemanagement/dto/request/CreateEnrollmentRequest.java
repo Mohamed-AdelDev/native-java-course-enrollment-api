@@ -4,10 +4,16 @@ public class CreateEnrollmentRequest {
 
     private Long studentId;
     private Long courseId;
+    private String discountType;
 
-    public CreateEnrollmentRequest(Long studentId, Long courseId) {
+    public CreateEnrollmentRequest(
+            Long studentId,
+            Long courseId,
+            String discountType) {
+
         this.studentId = studentId;
         this.courseId = courseId;
+        this.discountType = discountType;
     }
 
     public Long getStudentId() {
@@ -24,5 +30,13 @@ public class CreateEnrollmentRequest {
 
     public void setCourseId(Long courseId) {
         this.courseId = courseId;
+    }
+
+    public String getDiscountType() {
+        return discountType;
+    }
+
+    public void setDiscountType(String discountType) {
+        this.discountType = discountType;
     }
 }

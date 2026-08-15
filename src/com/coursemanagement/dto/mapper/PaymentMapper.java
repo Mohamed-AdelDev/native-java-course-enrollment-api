@@ -5,7 +5,8 @@ import com.coursemanagement.model.Payment;
 
 public class PaymentMapper {
 
-    public static PaymentResponse toResponse(Payment payment) {
+    public static PaymentResponse toResponse(
+            Payment payment) {
 
         return new PaymentResponse(
                 payment.getId(),

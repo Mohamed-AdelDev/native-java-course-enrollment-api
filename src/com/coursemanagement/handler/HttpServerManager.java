@@ -11,19 +11,53 @@ public class HttpServerManager {
 
     public void start() throws IOException {
 
-        server = HttpServer.create(new InetSocketAddress(8080), 0);
+        server =
+                HttpServer.create(
+                        new InetSocketAddress(8080),
+                        0
+                );
 
-        server.createContext("/api/students", new StudentHandler());
-        server.createContext("/api/courses", new CourseHandler());
-        server.createContext("/api/auth", new AuthHandler());
-        server.createContext("/api/enrollments", new EnrollmentHandler());
-        server.createContext("/api/payments", new PaymentHandler());
-        server.createContext("/api/health", new HealthHandler());
+        server.createContext(
+                "/api/students",
+                new StudentHandler()
+        );
+
+        server.createContext(
+                "/api/courses",
+                new CourseHandler()
+        );
+
+        server.createContext(
+                "/api/auth",
+                new AuthHandler()
+        );
+
+        server.createContext(
+                "/api/enrollments",
+                new EnrollmentHandler()
+        );
+
+        server.createContext(
+                "/api/payments",
+                new PaymentHandler()
+        );
+
+        server.createContext(
+                "/api/audit-logs",
+                new AuditLogHandler()
+        );
+
+        server.createContext(
+                "/api/health",
+                new HealthHandler()
+        );
 
         server.setExecutor(null);
 
         server.start();
 
-        System.out.println("HTTP Server started on http://localhost:8080");
+        System.out.println(
+                "HTTP Server started on http://localhost:8080"
+        );
     }
 }

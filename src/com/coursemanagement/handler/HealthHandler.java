@@ -11,21 +11,20 @@ public class HealthHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
 
-
-        String method = HttpUtil.getRequestMethod(exchange);
-
-        if (!method.equals("GET")) {
+        if (!HttpUtil.getRequestMethod(exchange).equals("GET")) {
             HttpUtil.sendResponse(exchange, 405);
             return;
         }
 
-        String response = """
+        HttpUtil.sendJsonResponse(
+                exchange,
+                200,
+                """
                 {
-                   "status":"UP",
-                   "application":"Course Enrollment API"
-                 }
-                """;
-
-        HttpUtil.sendJsonResponse(exchange, 200, response);
+                  "status": "UP",
+                  "application": "Course Enrollment API"
+                }
+                """
+        );
     }
 }

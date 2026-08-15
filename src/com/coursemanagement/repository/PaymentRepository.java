@@ -11,7 +11,9 @@ public interface PaymentRepository {
 
     Optional<Payment> findById(Long id);
 
-    Optional<Payment> findByEnrollmentId(Long enrollmentId);
+    Optional<Payment> findByEnrollmentId(
+            Long enrollmentId
+    );
 
     List<Payment> findAll();
 }

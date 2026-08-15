@@ -1,7 +1,8 @@
 package com.coursemanagement.model.enums;
 
 public enum DiscountType {
-    None,
-    Percentage,
-    FixedAmount
+    NONE,
+    STUDENT,
+    VIP,
+    PROMO
 }
