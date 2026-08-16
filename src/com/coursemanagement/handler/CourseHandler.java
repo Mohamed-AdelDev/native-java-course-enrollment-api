@@ -211,7 +211,7 @@ public class CourseHandler implements HttpHandler {
                 try {
 
                     status = CourseStatus.valueOf(
-                            statusValue.toUpperCase()
+                            statusValue
                     );
 
                 } catch (IllegalArgumentException e) {

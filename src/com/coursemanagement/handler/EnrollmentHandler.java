@@ -78,6 +78,14 @@ public class EnrollmentHandler implements HttpHandler {
                     HttpUtil.getRequestPath(exchange);
 
             if (method.equals("POST")
+                    && path.matches(
+                    "/api/enrollments/\\d+/payments")) {
+
+                new PaymentHandler().handle(exchange);
+                return;
+            }
+
+            if (method.equals("POST")
                     && path.equals("/api/enrollments")) {
 
                 createEnrollment(exchange, user);
